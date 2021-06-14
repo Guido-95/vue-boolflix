@@ -4,7 +4,7 @@
             <img src="../assets/logo-sito.png" alt="Logo">
         </div>
         <div class="ricerca-bottone">
-            <input type="text" v-model="oggettoDellaRicerca" placeholder="Cerca qui..">
+            <input type="text"  @keyup.enter="cliccaBottoneRicerca" v-model="oggettoDellaRicerca" placeholder="Cerca qui..">
             <button @click="cliccaBottoneRicerca" type="submit" value="Submit">
                 Cerca 
             </button>
@@ -14,8 +14,7 @@
                 </div>
                 
             </div> -->
-            <div v-if='2<0'></div>
-            <div v-else></div>
+           
            
         </div>
     </header>
@@ -39,36 +38,37 @@ export default {
                     params:{
                     api_key: "e99307154c6dfb0b4750f6603256716d",
                     query: this.oggettoDellaRicerca,
-                    language: 'it-It'
+                    language: 'it-IT'
                    
                     }
                 })
                 .then(
                     (risposta) => {
                     this.risultatoChiamata = risposta.data.results;
-                    console.log(this.risultatoChiamata);
+                    console.log( this.risultatoChiamata)
                     this.$emit("inviaOggettoRicerca", this.risultatoChiamata)
                     }
                 )
             // serie tv
             axios
-            .get('https://api.themoviedb.org/3/search/movie',{ 
+            .get('https://api.themoviedb.org/3/search/tv',{ 
                 params:{
                 api_key: "e99307154c6dfb0b4750f6603256716d",
                 query: this.oggettoDellaRicerca,
-                language: 'it-It'
-                
+                language: 'it-IT'
+
                 }
             })
             .then(
                 (risposta) => {
                 this.risultatoChiamata = risposta.data.results;
-                console.log(this.risultatoChiamata);
+                console.log( this.risultatoChiamata)
                 this.$emit("inviaOggettoRicerca", this.risultatoChiamata)
                 }
             )
                
-        }      
+        },
+  
     }
 
 }
