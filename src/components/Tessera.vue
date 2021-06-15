@@ -84,11 +84,16 @@ export default {
         position: relative;
         width: calc(100% / 5 - 30px);
         cursor: pointer;
+        &:hover{
+            // transition: 0.1s;
+            // transform: scale(1,1);
+            border: 1px solid white;
+        }
         // hover sulla tessera modifica il div in position absolute
         &:hover .info{
-            opacity: 90%;
+            opacity: 1;
             transition: 0.2s ease;
-            background-color: rgba(0,0,0, 0.9);
+            
         }
         // img film/serie/cartoni
         img{
@@ -104,7 +109,7 @@ export default {
             left: 0px;
             opacity: 0;
             overflow:hidden;
-            
+            background-color: rgba(0,0,0, 0.9);
             .titolo{
                 text-align: center;
                 margin: 10px;
@@ -124,7 +129,6 @@ export default {
                 margin-top: 10px;
                 font-size: 20px;
                 padding-bottom: 10px;
-                
                 color: white;
             }
             .voto{

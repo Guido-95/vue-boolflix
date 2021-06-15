@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header :class="{ 'onScroll': !view.topOfPage}">
         <div class="logo">
             <a href="index.html">
                 <img src="../assets/logo-sito.png" alt="Logo">
@@ -29,9 +29,20 @@
             
             <i @click="cliccaBottoneRicerca" class="fas fa-search"></i>
            <ul>
-               <li class="caps"> bambini</li>
-               <li><i class="fas fa-bell"></i></li>
-               <li class="avatar"> <img src="../assets/avatar.png" alt=""></li>
+                <li class="caps"> bambini</li>
+                <li><i class="fas fa-bell"></i></li>
+                <li class="avatar"> <img src="../assets/avatar.png" alt=""> 
+                    <i class="fas fa-caret-down">
+                        <div class="menu-avatar">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </i> 
+                </li>
            </ul>
          
            
@@ -46,12 +57,25 @@ export default {
 
     data(){
         return{
+            view: {
+                topOfPage: true
+            },
             oggettoDellaRicerca:"",
             movies:[],
             series:[]
         }
     },
+    beforeMount() {
+        window.addEventListener('scroll', this.handleScroll)
+    },
     methods:{
+        handleScroll(){
+            if(window.pageYOffset > 0 ){
+                if(this.view.topOfPage) this.view.topOfPage = false
+            } else {
+                if(!this.view.topOfPage) this.view.topOfPage = true
+            }
+        },
         cliccaBottoneRicerca(){
             
             // film
@@ -108,9 +132,14 @@ export default {
         align-items: center;
         height: 80px;
         padding: 0px 50px;
-        
+        transition: all 0.4s ease-in-out;  
         // background-color: transparent;
-        background-color: #1b1b1b;
+        background-color: transparent;
+        &.onScroll {
+        transition: all 0.4s ease-in-out;    
+        box-shadow: 0 0 5px #aaa;
+        background-color: rgb(10, 10, 10);
+        }
     }
     .logo {
         width: 50%;
@@ -130,8 +159,8 @@ export default {
            
             list-style: none;
             li {
-              margin-right: 15px;
-               cursor: pointer;  
+                margin-right: 15px;
+                cursor: pointer;  
             }
             a {  
                 text-decoration: none;
@@ -156,7 +185,6 @@ export default {
             align-items: center;
             width: 30%;
             justify-content: space-around;
-            
             list-style: none;
         li {
             
@@ -169,7 +197,17 @@ export default {
        
         }
         .avatar{
-           
+            display: flex;
+            align-items: center;
+            .fa-caret-down{
+                position: relative;
+                margin-left: 10px;
+                
+                &:hover{
+                    transition: 0.2s ;
+                    transform: rotate(180deg);
+                }
+            }
             img{
                 border-radius: 5px;
             }
