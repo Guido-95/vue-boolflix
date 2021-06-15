@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Header @inviaOggettoRicerca = catturaOggettoRicerca />
+    <Header @inviaFilms = catturaFilms
+            @inviaSeries = catturaSeries
+            />
 
-    <Main :oggettoRicerca = oggettoDellaRicerca />
+    <Main :oggettoRicerca = serieEfilms />
    
   </div>
 </template>
@@ -19,17 +21,34 @@ export default {
   },
   data(){
     return{
-      oggettoDellaRicerca:[],
+      filmsRicevuti:[],
+      seriesRicevute:[],
+      serieEfilms:[],
     }
    
   },
   methods:{
-    catturaOggettoRicerca(oggettoRicercaInput){
-      this.oggettoDellaRicerca = oggettoRicercaInput;
+    catturaFilms(films){
+      this.filmsRicevuti = films;
+      console.log("1)this.filmsRicevutiAPP=",this.filmsRicevuti );
+      this.unisciArray();
+      
+    },
+    catturaSeries(series){
+       this.seriesRicevute = series;
+       console.log("2)this.SeriesRicevuteAPP=",this.seriesRicevute );
+      this.unisciArray();
+      },
+      unisciArray(){
+        //  unisci array film e serie
+        this.serieEfilms = this.filmsRicevuti.concat(this.seriesRicevute);
+        console.log("3)this.arrayUnito=",this.serieEfilms );
+      }
       
     }
   }
-}
+
+
 </script>
 
 <style lang="scss">
@@ -41,7 +60,7 @@ export default {
     padding: 0;
   }
   body{
-    color: grey;
+    background-color: #1b1b1b;
   }
 
 

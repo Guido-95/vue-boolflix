@@ -27,7 +27,8 @@ export default {
     data(){
         return{
             oggettoDellaRicerca:"",
-            risultatoChiamata:[],
+            movies:[],
+            series:[]
         }
     },
     methods:{
@@ -44,12 +45,13 @@ export default {
                 })
                 .then(
                     (risposta) => {
-                    this.risultatoChiamata = risposta.data.results;
-                    console.log( this.risultatoChiamata)
-                    this.$emit("inviaOggettoRicerca", this.risultatoChiamata)
+                    
+                    this.movies = risposta.data.results;
+                   
+                    this.$emit("inviaFilms", this.movies)
                     }
                 )
-            // serie tv
+             
             axios
             .get('https://api.themoviedb.org/3/search/tv',{ 
                 params:{
@@ -61,9 +63,10 @@ export default {
             })
             .then(
                 (risposta) => {
-                this.risultatoChiamata = risposta.data.results;
-                console.log( this.risultatoChiamata)
-                this.$emit("inviaOggettoRicerca", this.risultatoChiamata)
+                  
+                this.series = risposta.data.results; 
+              
+                this.$emit("inviaSeries", this.series)
                 }
             )
                
