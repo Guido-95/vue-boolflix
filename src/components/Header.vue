@@ -8,15 +8,21 @@
             <button @click="cliccaBottoneRicerca" type="submit" value="Submit">
                 Cerca 
             </button>
-            <!-- <div v-if="risultatoChiamata.length >0" >
-                <div v-for="prova in risultatoChiamata" :key="prova.title">
-                     {{prova.title}}
-                </div>
-                
-            </div> -->
+         
            
            
         </div>
+
+
+        <!-- <div class="ricerca-bottone">
+            <input type="text"  @keyup.enter="cliccaBottoneRicerca" v-model="oggettoDellaRicerca" placeholder="Cerca qui..">
+            <button @click="cliccaBottoneRicerca" type="submit" value="Submit">
+                Cerca 
+            </button>
+         
+           
+           
+        </div> -->
     </header>
 </template>
 
@@ -78,6 +84,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
     header{
         display: flex;
         justify-content: space-between;
@@ -94,9 +102,17 @@ export default {
 
     .ricerca-bottone{
         input{
-            height: 30px;
-            width: 200px;
+            
+            height: 40px;
+            width: spx;
             margin: 10px;
+            background-color: #1b1b1b;
+        }
+
+         input::placeholder{
+            font-size: 20px;
+            color: white;
+  
         }
         button{
             height: 30px;
