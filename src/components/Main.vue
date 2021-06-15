@@ -44,12 +44,21 @@ export default {
   }
 
   .testo-alternativo{
-    height: calc(90vh - 80px);
+    height: calc(100vh - 80px);
     width: 100%;
-    font-size: 35px;
+    
     display: flex;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
+    background-image: url(../assets/background.png);
+    // background-color: red;
+   
+    h2{
+      font-size: 50px;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: rgba(0,0,0, 0.8);
+    }
   }
 </style>

@@ -4,36 +4,36 @@
             <a href="index.html">
                 <img src="../assets/logo-sito.png" alt="Logo">
             </a>
+            <ul>
+                <li class="Home">
+                    <a href="index.html"> Home </a> 
+                </li>
+                <li>
+                    Serie TV
+                </li>
+                <li>
+                    Film
+                </li>
+                <li>
+                    Popolari
+                </li>
+                <li>
+                    La mia Lista
+                </li>
+            </ul>
             
-            <div class="Home">
-               <a href="index.html"> Home </a> 
-            </div>
-            <div>
-                Serie TV
-            </div>
-            <div>
-                Film
-            </div>
-            <div>
-                Popolari
-                </div>
-            <div>
-                La mia Lista
-            </div>
         </div>
         
         <div class="ricerca-bottone">
             <input type="text"  @keyup.enter="cliccaBottoneRicerca" v-model="oggettoDellaRicerca" placeholder="Cerca qui..">
             
             <i @click="cliccaBottoneRicerca" class="fas fa-search"></i>
-           
-           <div class="caps">
-               bambini
-           </div>
-            <i class="fas fa-bell"></i>
-            <div class="avatar">
-                <img src="../assets/avatar.png" alt="">
-            </div>
+           <ul>
+               <li class="caps"> bambini</li>
+               <li><i class="fas fa-bell"></i></li>
+               <li class="avatar"> <img src="../assets/avatar.png" alt=""></li>
+           </ul>
+         
            
         </div>
         
@@ -112,21 +112,28 @@ export default {
         // background-color: transparent;
         background-color: #1b1b1b;
     }
-    .logo{
-        width: 30%;
+    .logo {
+        width: 50%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        a{
+        a {
             
             display: flex;
             align-items: center;
             justify-content: center;
             
         }
-        div{
-            cursor: pointer;
-            a{  
+        ul {
+            display: flex;
+            width: 100%;
+           
+            list-style: none;
+            li {
+              margin-right: 15px;
+               cursor: pointer;  
+            }
+            a {  
                 text-decoration: none;
                 color: white;
             }
@@ -138,17 +145,31 @@ export default {
     }
 
     .ricerca-bottone{
-        
-        width: 35%;
+      
+        width: 50%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-
+        justify-content: flex-end;
+        ul {
+            
+            display: flex;
+            align-items: center;
+            width: 30%;
+            justify-content: space-around;
+            
+            list-style: none;
+        li {
+            
+            cursor: pointer;
+            margin-right: 0px;
+            .fa-bell{
+                font-size: 25px;
+            }  
+        }
+       
+        }
         .avatar{
            
-        
-           
-
             img{
                 border-radius: 5px;
             }
@@ -169,8 +190,8 @@ export default {
             
             
         }
-        i{
-           
+        .fa-search{
+            margin: 0px 25px;
             cursor: pointer;
             font-size: 25px;
         }
