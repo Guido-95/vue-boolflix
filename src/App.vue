@@ -4,11 +4,13 @@
     <!-- header -->
     <Header @inviaFilms = catturaFilms
             @inviaSeries = catturaSeries
+            @ricercaFatta = ricercaFatta
             />
     <!-- /header -->
 
     <!-- main -->
-    <Main :oggettoRicerca = serieEfilms />
+    <Main :oggettoRicerca = serieEfilms
+          :statoRicerca = ricerca />
     <!-- /main -->
   </div>
 </template>
@@ -30,6 +32,7 @@ export default {
       filmsRicevuti:[],
       seriesRicevute:[],
       serieEfilms:[],
+      ricerca : false
     }
    
   },
@@ -45,6 +48,10 @@ export default {
       this.seriesRicevute = series;
       this.unisciArray();
     },
+     ricercaFatta(ricercaTrue){
+      this.ricerca = ricercaTrue;
+    },
+
     //  unisci array film e serie
     unisciArray(){
       this.serieEfilms = this.filmsRicevuti.concat(this.seriesRicevute);

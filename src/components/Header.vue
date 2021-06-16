@@ -62,7 +62,8 @@ export default {
             },
             oggettoDellaRicerca:"",
             movies:[],
-            series:[]
+            series:[],
+            ricerca : false
         }
     },
     beforeMount() {
@@ -92,7 +93,14 @@ export default {
                     (risposta) => {
                     
                     this.movies = risposta.data.results;
-                    this.$emit("inviaFilms", this.movies)
+                    this.movies.forEach(
+                        element =>{
+                            element.type= "Film";
+                        })
+                  
+                    this.$emit("inviaFilms", this.movies);
+                    this.ricerca = true;
+                    this.$emit("ricercaFatta", this.ricerca);
                     this.oggettoDellaRicerca="";
                     }
                 )
@@ -108,7 +116,12 @@ export default {
             })
             .then(
                 (risposta) => {
-                this.series = risposta.data.results; 
+                this.series = risposta.data.results;
+                this.series.forEach(
+                    element =>{
+                        element.type= "Serie";
+                    })
+                    
                 this.$emit("inviaSeries", this.series);
 
                 }

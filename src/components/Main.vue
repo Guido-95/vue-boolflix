@@ -10,8 +10,11 @@
 
     <!-- testo alternativo se il main è vuoto -->
     <div v-else class="testo-alternativo"> 
-      <h2> 
+      <h2 v-if="oggettoRicerca.length == 0 && statoRicerca == false"> 
         Scrivi un titolo...
+      </h2>
+      <h2 v-else class="ricerca-fallita"> 
+        <span> La tua ricerca non ha prodotto risultati ! </span> 
       </h2> 
     </div>
     <!-- /testo alternativo se il main è vuoto -->
@@ -30,6 +33,7 @@ export default {
   props:{
     // props passata da App
     oggettoRicerca:Array,
+    statoRicerca:Boolean
   },
   
 }
@@ -46,19 +50,22 @@ export default {
   .testo-alternativo{
     height: calc(100vh - 80px);
     width: 100%;
-    
     display: flex;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     background-image: url(../assets/background.png);
-    // background-color: red;
    
     h2{
-      font-size: 50px;
+      font-size: 40px;
       padding: 20px;
       border-radius: 15px;
       background-color: rgba(0,0,0, 0.8);
+    }
+    .ricerca-fallita{
+      font-size: 30px;
+      background-color: rgba(0,0,0, 0.8);
+      color: red;
     }
   }
 </style>

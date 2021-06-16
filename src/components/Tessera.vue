@@ -1,22 +1,29 @@
 <template>
     <!-- tessera singola -->
     <div  v-if="tessera.poster_path != null"  class="contenitore-tessere">
+        <div v-if="tessera.type == 'Film' " class="tipo">
+            Film
+        </div>
+        <div  v-else-if="tessera.type == 'Serie'" class="tipo">
+            Serie
+        </div>
         <!-- immagine -->
         <img  :src="creaLocandina(tessera.poster_path)" >
         <!-- /immagine -->
 
         <!-- info film/serie/cartone -->
         <div class="display-none info">
-            <!-- nome film -->
-            <div v-if="tessera.title != null" class="titolo"> 
-                {{tessera.title}} 
+            
+            <div class="titolo">
+                Titolo:
+                {{tessera.title || tessera.name}} 
             </div>
-            <!-- /nome film -->
-            <!-- nome serie -->
-            <div class="titolo"  v-else> 
-                {{tessera.name}}
+
+             <div class="titolo"> 
+                Titolo originale:
+                {{tessera.original_title || tessera.original_name}} 
             </div>
-            <!-- /nome serie -->
+            
             <!-- bandiere e lingue -->
             <div class="bandiera" v-if="tessera.original_language == 'it'">
                 <img src="../assets/images/it.png" alt="Italiano">
@@ -78,12 +85,22 @@ export default {
 <style lang="scss" scoped>
     // contenitore tessera
     .contenitore-tessere {
+        position: relative;
         display: flex;
         flex-direction: column;
         margin:  15px 15px ;
         position: relative;
         width: calc(100% / 5 - 30px);
         cursor: pointer;
+        .tipo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 12px;
+            font-weight: 700;
+            color: white;
+            background-color: rgba(0,0,0, 0.5);
+        }
         &:hover{
             // transition: 0.1s;
             // transform: scale(1,1);
@@ -113,7 +130,7 @@ export default {
             .titolo{
                 text-align: center;
                 margin: 10px;
-                font-size: 30px;
+                font-size: 20px;
             }
             .bandiera {
             display: flex;
