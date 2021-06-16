@@ -4,20 +4,20 @@
             <a href="index.html">
                 <img src="../assets/logo-sito.png" alt="Logo">
             </a>
-            <ul>
+            <ul >
                 <li class="Home">
                     <a href="index.html"> Home </a> 
                 </li>
-                <li>
-                    Serie TV
+                <li class="serie-tv">
+                    Serie <span class="tv"> TV </span> 
                 </li>
-                <li>
+                <li class="film">
                     Film
                 </li>
-                <li>
+                <li class="popolari">
                     Popolari
                 </li>
-                <li>
+                <li class="la-mia-lista">
                     La mia Lista
                 </li>
             </ul>
@@ -31,14 +31,19 @@
            <ul>
                 <li class="caps"> bambini</li>
                 <li><i class="fas fa-bell"></i></li>
-                <li class="avatar"> <img src="../assets/avatar.png" alt=""> 
+                <li class="avatar"> 
+                    <img src="../assets/avatar.png" alt="avatar"> 
                     <i class="fas fa-caret-down">
                         <div class="menu-avatar">
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
+                            <ul class="menu-comparsa top">
+                                <li><img src="../assets/bambini.png" alt="bambini"> <a href=""> bambini </a>  </li>
+                                <li><a href=""> Gestici i profili </a></li>
+                            </ul>
+                            <ul class="menu-comparsa bottom">
+                                
+                                <li><a href=""> Account</a></li>
+                                <li><a href=""> Centro Assistenza</a></li>
+                                <li><a href=""> Esci da Netflix</a></li>
                             </ul>
                         </div>
                     </i> 
@@ -150,15 +155,18 @@ export default {
         background-color: transparent;
         &.onScroll {
         transition: all 0.4s ease-in-out;    
-        box-shadow: 0 0 5px #aaa;
+        box-shadow: 0 0 2px #aaa;
         background-color: rgb(10, 10, 10);
         }
     }
     .logo {
-        width: 50%;
+        
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        
+        .serie-tv{
+            display: flex;
+        }
         a {
             
             display: flex;
@@ -196,7 +204,7 @@ export default {
             
             display: flex;
             align-items: center;
-            width: 30%;
+            width: 25%;
             justify-content: space-around;
             list-style: none;
         li {
@@ -212,14 +220,56 @@ export default {
         .avatar{
             display: flex;
             align-items: center;
+           
             .fa-caret-down{
+                padding: 30px 0px;
                 position: relative;
                 margin-left: 10px;
-                
-                &:hover{
-                    transition: 0.2s ;
-                    transform: rotate(180deg);
+                .menu-avatar{
+                    position: absolute;
+                    top: 70px;
+                    left: -140px;
+                    width: 200px;
+                   
+                    background-color:black ;
+                    display: none;
+                    .menu-comparsa.top{
+                        border-bottom: 1px solid white;
+                    }
+                    .menu-comparsa{
+                        width: 100%;
+                        justify-content: center;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        li {
+                            font-size: 13px;
+                            display: flex;
+                            align-items: center;
+                            text-align: center;
+                            margin: 5px;
+                            padding: 10px;
+                            img {
+                               
+                              
+                                margin-right: 10px;
+                            }
+                            a {
+                                color: white;
+                                text-decoration: none;
+                            } 
+                        }
+                    }
                 }
+                &:hover .menu-avatar{
+                    display: block;
+                }
+                // &:hover{
+                //     transition: 0.2s ;
+                //     transform: rotate(180deg);
+                // }
             }
             img{
                 border-radius: 5px;
@@ -235,22 +285,120 @@ export default {
         }
 
          input::placeholder{
-             padding: 10px;
-             font-size: 20px;
-             color: white;
-            
-            
+            padding: 10px;
+            font-size: 20px;
+            color: white;   
         }
         .fa-search{
-            margin: 0px 25px;
+            margin: 0px 15px;
             cursor: pointer;
             font-size: 25px;
         }
 
         .caps{
             text-transform: uppercase;
+        } 
+    }
+
+    @media (min-width: 576px) { 
+        .caps{
+            display: none;
+        } 
+
+        .logo > ul {
+            display: none;
+        }  
+   
+    }
+    @media (max-width: 575px) { 
+        .caps,
+        .fa-bell,
+        .la-mia-lista,
+        .tv,
+        .popolari,
+        .fa-bell,
+        .avatar,
+        .fa-caret-down,
+        .avatar > img,
+        .fa-search{
+            display: none;
+        } 
+
+        .logo > a > img{
+            width: 100px;
         }
+
+        .logo > ul {
+            font-size: 12px;
+            display: none;
+        }  
+    }
+
+    @media (min-width: 576px) { 
+        .caps,
+        .fa-bell,
+        .la-mia-lista,
+        .tv,
+        .popolari,
+        .fa-bell,
+        .avatar > img ,
+        .fa-caret-down{
+            display: none;
+        } 
         
-      
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) { 
+        .caps,
+        .fa-bell,
+        .la-mia-lista,
+        .tv,
+        .popolari,
+        .fa-bell,
+        .film{
+            display: none;
+        }  
+        .logo > ul ,
+        .avatar > img,
+        .fa-caret-down {
+            font-size: 13px;
+            display: flex;
+        }  
+    }
+
+    @media (min-width: 992px) { 
+        .caps,
+        .tv,
+        .fa-bell{
+            display: none;
+        }
+        .popolari,
+        .avatar > img,
+        .fa-caret-down{
+            display: block;
+        }
+        .logo > ul {
+            font-size: 14px;
+            display: flex;
+        }  
+    }
+
+     @media (min-width: 1200px) { 
+        .caps,
+        .fa-bell,
+        .tv,
+        .popolari,
+        .la-mia-lista,
+        .avatar > img,
+        .fa-caret-down{
+            display: block;
+        }
+
+        .logo > ul {
+            font-size: 18px;
+            display: flex;
+        }  
+
     }
 </style>

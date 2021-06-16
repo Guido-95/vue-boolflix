@@ -15,11 +15,10 @@
         <div class="display-none info">
             
             <div class="titolo">
-                Titolo:
                 {{tessera.title || tessera.name}} 
             </div>
 
-             <div class="titolo"> 
+             <div class="titolo-originale"> 
                 Titolo originale:
                 {{tessera.original_title || tessera.original_name}} 
             </div>
@@ -31,7 +30,7 @@
             <div class="bandiera" v-else-if="tessera.original_language =='en'">
                 <img src="../assets/images/en.png" alt="Inglese">
             </div>
-            <div v-else >
+            <div v-else class="lingua">
                 Lingua : {{tessera.original_language}}
             </div>
             <!-- /bandiere e lingue -->
@@ -90,16 +89,21 @@ export default {
         flex-direction: column;
         margin:  15px 15px ;
         position: relative;
-        width: calc(100% / 5 - 30px);
+     
         cursor: pointer;
-        .tipo{
+         &:hover .tipo{
+                display: none;
+            }
+        .tipo {
+            text-transform: uppercase;
             position: absolute;
             top: 0;
             left: 0;
-            padding: 12px;
+            word-spacing: 5px;
+            padding: 14px;
             font-weight: 700;
             color: white;
-            background-color: rgba(0,0,0, 0.5);
+            background-color: rgba(0,0,0, 0.8);
         }
         &:hover{
             // transition: 0.1s;
@@ -109,16 +113,16 @@ export default {
         // hover sulla tessera modifica il div in position absolute
         &:hover .info{
             opacity: 1;
-            transition: 0.2s ease;
-            
+            transition: 0.2s ease; 
         }
+        
         // img film/serie/cartoni
         img{
             height: 100%;
         }
         // informazioni
         .info{
-            padding: 20px;
+            padding: 5px 15px;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -127,40 +131,70 @@ export default {
             opacity: 0;
             overflow:hidden;
             background-color: rgba(0,0,0, 0.9);
-            .titolo{
+            .titolo {
                 text-align: center;
                 margin: 10px;
                 font-size: 20px;
+            }
+            .titolo-originale{
+              
+                text-align: center;
+                margin: 10px;
+                font-size: 15px;
+            
             }
             .bandiera {
             display: flex;
             justify-content: center;
             
                 img {
-                    margin: 20px;
-                border-radius: 10px;
-                width: 70px;
+                margin: 20px;
+                border-radius: 5px;
+                width: 40px;
                 }
+            }
+            .lingua{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px;
             }
             .trama{
                 margin-top: 10px;
-                font-size: 20px;
+              
                 padding-bottom: 10px;
                 color: white;
             }
             .voto{
-                margin-bottom: 50px;
+                margin-bottom: 20px;
                 text-align: center;
                 text-transform: uppercase;
-                font-size: 20px;
+                
                 .fas{
                     color: yellow;
                 }
             } 
-        }
-        
-       
-
+        }       
     }
 
+    @media (min-width: 992px) { 
+
+    .trama{ 
+        font-size: 14px;
+    }  
+        .voto{
+        font-size: 12px;
+    }   
+        
+    }
+
+    @media (min-width: 1200px) { 
+            
+        .trama{
+            font-size: 15px;
+        } 
+        .voto{
+            font-size: 15px;
+        }
+    }
 </style>

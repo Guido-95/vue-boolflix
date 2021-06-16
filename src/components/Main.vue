@@ -44,6 +44,7 @@ export default {
   .riga {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
  
   }
 
