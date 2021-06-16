@@ -91,7 +91,7 @@ export default {
         position: relative;
      
         cursor: pointer;
-         &:hover .tipo{
+            &:hover .tipo{
                 display: none;
             }
         .tipo {
@@ -106,18 +106,18 @@ export default {
             background-color: rgba(0,0,0, 0.8);
         }
         // hover sulla tessera modifica il div in position absolute
-        &:hover .info{
-            border: 1px solid white;
+        &:hover .info {
+            // border: 1px solid white;
             opacity: 1;
             transition: 0.2s ease; 
         }
         
         // img film/serie/cartoni
-        img{
+        img {
             height: 100%;
         }
         // informazioni
-        .info{
+        .info {
             padding: 5px 15px;
             position: absolute;
             width: 100%;
@@ -132,7 +132,7 @@ export default {
                 margin: 10px;
                 font-size: 20px;
             }
-            .titolo-originale{
+            .titolo-originale {
               
                 text-align: center;
                 margin: 10px;
@@ -149,24 +149,24 @@ export default {
                 width: 40px;
                 }
             }
-            .lingua{
+            .lingua {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 margin: 20px;
             }
-            .trama{
+            .trama {
                 margin-top: 10px;
               
                 padding-bottom: 10px;
                 color: white;
             }
-            .voto{
+            .voto {
                 margin-bottom: 20px;
                 text-align: center;
                 text-transform: uppercase;
                 
-                .fas{
+                .fas {
                     color: yellow;
                 }
             } 

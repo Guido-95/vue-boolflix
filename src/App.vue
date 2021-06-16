@@ -70,11 +70,10 @@ export default {
     padding: 0;
   }
   
-  body{
+  body {
     padding-top: 80px;
     font-family: 'Roboto', sans-serif;
     background-color: #1b1b1b;
     color: white;
-
   }
 </style>

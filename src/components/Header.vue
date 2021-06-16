@@ -140,7 +140,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    header{
+    header {
         position: fixed;
         top: 0;
         z-index: 1000;
@@ -151,7 +151,6 @@ export default {
         height: 80px;
         padding: 0px 50px;
         transition: all 0.4s ease-in-out;  
-        // background-color: transparent;
         background-color: transparent;
         &.onScroll {
         transition: all 0.4s ease-in-out;    
@@ -160,11 +159,10 @@ export default {
         }
     }
     .logo {
-        
         display: flex;
         align-items: center;
         
-        .serie-tv{
+        .serie-tv {
             display: flex;
         }
         a {
@@ -188,18 +186,18 @@ export default {
                 color: white;
             }
         }
-        img{
+        img {
             margin-right: 30px;
             width: 150px;
         }
     }
 
-    .ricerca-bottone{
-      
+    .ricerca-bottone {
         width: 50%;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
         ul {
             
             display: flex;
@@ -207,25 +205,25 @@ export default {
             width: 25%;
             justify-content: space-around;
             list-style: none;
-        li {
-            
-            cursor: pointer;
-            margin-right: 0px;
-            .fa-bell{
+
+            li {
+                cursor: pointer;
+                margin-right: 0px;
+                .fa-bell {
                 font-size: 25px;
-            }  
+                }  
         }
        
         }
-        .avatar{
+        .avatar {
             display: flex;
             align-items: center;
            
-            .fa-caret-down{
+            .fa-caret-down {
                 padding: 30px 0px;
                 position: relative;
                 margin-left: 10px;
-                .menu-avatar{
+                .menu-avatar {
                     position: absolute;
                     top: 70px;
                     left: -140px;
@@ -233,10 +231,10 @@ export default {
                    
                     background-color:black ;
                     display: none;
-                    .menu-comparsa.top{
+                    .menu-comparsa.top {
                         border-bottom: 1px solid white;
                     }
-                    .menu-comparsa{
+                    .menu-comparsa {
                         width: 100%;
                         justify-content: center;
                         font-family: 'Roboto', sans-serif;
@@ -263,7 +261,7 @@ export default {
                         }
                     }
                 }
-                &:hover .menu-avatar{
+                &:hover .menu-avatar {
                     display: block;
                 }
                 // &:hover{
@@ -271,11 +269,11 @@ export default {
                 //     transform: rotate(180deg);
                 // }
             }
-            img{
+            img {
                 border-radius: 5px;
             }
         }
-        input{
+        input {
             border-radius: 10px;
             padding: 10px;
             width: 400px;
@@ -284,18 +282,18 @@ export default {
             background-color: #0e0e0e;
         }
 
-         input::placeholder{
+         input::placeholder {
             padding: 10px;
             font-size: 20px;
             color: white;   
         }
-        .fa-search{
+        .fa-search {
             margin: 0px 15px;
             cursor: pointer;
             font-size: 25px;
         }
 
-        .caps{
+        .caps {
             text-transform: uppercase;
         } 
     }
@@ -324,7 +322,7 @@ export default {
             display: none;
         } 
 
-        .logo > a > img{
+        .logo > a > img {
             width: 100px;
         }
 
@@ -348,7 +346,6 @@ export default {
         
     }
 
-    // Medium devices (tablets, 768px and up)
     @media (min-width: 768px) { 
         .caps,
         .fa-bell,
@@ -356,7 +353,7 @@ export default {
         .tv,
         .popolari,
         .fa-bell,
-        .film{
+        .film {
             display: none;
         }  
         .logo > ul ,
@@ -370,12 +367,12 @@ export default {
     @media (min-width: 992px) { 
         .caps,
         .tv,
-        .fa-bell{
+        .fa-bell {
             display: none;
         }
         .popolari,
         .avatar > img,
-        .fa-caret-down{
+        .fa-caret-down {
             display: block;
         }
         .logo > ul {

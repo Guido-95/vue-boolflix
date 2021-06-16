@@ -48,7 +48,7 @@ export default {
  
   }
 
-  .testo-alternativo{
+  .testo-alternativo {
     height: calc(100vh - 80px);
     width: 100%;
     display: flex;
@@ -57,13 +57,13 @@ export default {
     align-items: center;
     background-image: url(../assets/background.png);
    
-    h2{
+    h2 {
       font-size: 40px;
       padding: 20px;
       border-radius: 15px;
       background-color: rgba(0,0,0, 0.8);
     }
-    .ricerca-fallita{
+    .ricerca-fallita {
       font-size: 30px;
       background-color: rgba(0,0,0, 0.8);
       color: red;
