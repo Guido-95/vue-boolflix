@@ -105,16 +105,11 @@ export default {
             color: white;
             background-color: rgba(0,0,0, 0.8);
         }
-        &:hover{
-            // transition: 0.1s;
-            // transform: scale(1,1);
-            // border: 1px solid white;
-        }
         // hover sulla tessera modifica il div in position absolute
         &:hover .info{
-            opacity: 1;
-            transition: 0.2s ease;
             border: 1px solid white;
+            opacity: 1;
+            transition: 0.2s ease; 
         }
         
         // img film/serie/cartoni
