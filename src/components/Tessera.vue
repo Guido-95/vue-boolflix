@@ -108,12 +108,13 @@ export default {
         &:hover{
             // transition: 0.1s;
             // transform: scale(1,1);
-            border: 1px solid white;
+            // border: 1px solid white;
         }
         // hover sulla tessera modifica il div in position absolute
         &:hover .info{
             opacity: 1;
-            transition: 0.2s ease; 
+            transition: 0.2s ease;
+            border: 1px solid white;
         }
         
         // img film/serie/cartoni
