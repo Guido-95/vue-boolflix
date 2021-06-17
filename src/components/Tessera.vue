@@ -1,14 +1,15 @@
 <template>
     <!-- tessera singola -->
-    <div  v-if="tessera.poster_path != null"  class="contenitore-tessere">
-        <div v-if="tessera.type == 'Film' " class="tipo">
+    <div  class="contenitore-tessere">
+        <div v-if="tessera.type == 'Film' " class="tipo"> <!--  v-if="tessera.poster_path != null"   -->
             Film
         </div>
         <div  v-else-if="tessera.type == 'Serie'" class="tipo">
             Serie
         </div>
         <!-- immagine -->
-        <img  :src="creaLocandina(tessera.poster_path)" >
+        <img v-if="tessera.poster_path != null" :src="creaLocandina(tessera.poster_path)" >
+        <img v-else class="immagine-non-trovata" src="../assets/immagine.jpeg" >
         <!-- /immagine -->
 
         <!-- info film/serie/cartone -->
@@ -38,7 +39,7 @@
             <!-- stelline del voto -->
             <div class="voto">
                 Voto:
-                <span v-for="stellina,indicatore in riempiStelline(Math.round((tessera.vote_average / 2)))" :key="indicatore" > 
+                <span v-for="stellina,indicatore in riempiStelline(Math.ceil((tessera.vote_average / 2)))" :key="indicatore" > 
                     <i v-if="stellina == 'piena' " class="fas fa-star"></i>
                     <i v-else  class="far fa-star"></i> 
                 </span> 
@@ -89,7 +90,7 @@ export default {
         flex-direction: column;
         margin:  15px 15px ;
         position: relative;
-     
+        
         cursor: pointer;
             &:hover .tipo{
                 display: none;
@@ -115,6 +116,10 @@ export default {
         // img film/serie/cartoni
         img {
             height: 100%;
+        }
+        .immagine-non-trovata{
+            width: 342px;
+            height: 512px;
         }
         // informazioni
         .info {
@@ -173,6 +178,7 @@ export default {
         }       
     }
 
+   
     @media (min-width: 992px) { 
 
     .trama{ 
