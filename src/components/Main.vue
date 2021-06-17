@@ -45,7 +45,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
- 
+
   }
 
   .testo-alternativo {

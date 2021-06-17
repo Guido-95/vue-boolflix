@@ -4,21 +4,21 @@
             <a href="index.html">
                 <img src="../assets/logo-sito.png" alt="Logo">
             </a>
-            <ul >
+            <ul class="lista-header-sinistra">
                 <li class="Home">
                     <a href="index.html"> Home </a> 
                 </li>
                 <li class="serie-tv">
-                    Serie <span class="tv"> TV </span> 
+                    <a href="">Serie  <span class="tv"> TV </span> </a>
                 </li>
                 <li class="film">
-                    Film
+                   <a href=""> Film  </a>
                 </li>
                 <li class="popolari">
-                    Popolari
+                     <a href=""> Popolari </a>
                 </li>
                 <li class="la-mia-lista">
-                    La mia Lista
+                    <a href=""> La mia Lista </a>
                 </li>
             </ul>
             
@@ -83,8 +83,8 @@ export default {
             }
         },
         cliccaBottoneRicerca(){
-            
-            // film
+            if(this.oggettoDellaRicerca != ''.trim()){
+                 // film
             axios
                 .get('https://api.themoviedb.org/3/search/movie',{ 
                     params:{
@@ -102,7 +102,7 @@ export default {
                         element =>{
                             element.type= "Film";
                         })
-                  
+                    
                     this.$emit("inviaFilms", this.movies);
                     this.ricerca = true;
                     this.$emit("ricercaFatta", this.ricerca);
@@ -131,11 +131,9 @@ export default {
 
                 }
             )
-           
+            }
         },
-        
     }
-
 }
 </script>
 
@@ -165,6 +163,12 @@ export default {
         .serie-tv {
             display: flex;
         }
+        .lista-header-sinistra > li > a:hover{
+            transition: 0.2s;
+            color: rgb(194, 194, 194);
+
+        }
+        
         a {
             
             display: flex;
@@ -182,6 +186,7 @@ export default {
                 cursor: pointer;  
             }
             a {  
+                font-weight: 300;
                 text-decoration: none;
                 color: white;
             }
@@ -281,8 +286,8 @@ export default {
             color: white;
             background-color: #0e0e0e;
         }
-
-         input::placeholder {
+        
+        input::placeholder {
             padding: 10px;
             font-size: 20px;
             color: white;   
@@ -372,7 +377,8 @@ export default {
         }
         .popolari,
         .avatar > img,
-        .fa-caret-down {
+        .fa-caret-down,
+        .film {
             display: block;
         }
         .logo > ul {
@@ -381,7 +387,7 @@ export default {
         }  
     }
 
-     @media (min-width: 1200px) { 
+    @media (min-width: 1200px) { 
         .caps,
         .fa-bell,
         .tv,

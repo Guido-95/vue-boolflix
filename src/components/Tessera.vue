@@ -108,7 +108,7 @@ export default {
         }
         // hover sulla tessera modifica il div in position absolute
         &:hover .info {
-            // border: 1px solid white;
+            border: 1px solid white;
             opacity: 1;
             transition: 0.2s ease; 
         }
