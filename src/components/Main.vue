@@ -42,9 +42,12 @@ export default {
 <style lang="scss" scoped>
 
   .riga {
+    margin: auto;
+    text-align: center;
+    width: 98%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
  
   }
 

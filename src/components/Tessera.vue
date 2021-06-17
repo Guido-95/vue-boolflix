@@ -90,8 +90,8 @@ export default {
         flex-direction: column;
         margin:  15px 15px ;
         position: relative;
-        
         cursor: pointer;
+        
             &:hover .tipo{
                 display: none;
             }
